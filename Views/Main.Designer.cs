@@ -31,14 +31,21 @@
             this.ScoreBox = new System.Windows.Forms.GroupBox();
             this.ScoreLabel = new System.Windows.Forms.Label();
             this.PokerPanel = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.結束ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.離開遊戲ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.所有單字ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ScoreBox.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ScoreBox
             // 
+            this.ScoreBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ScoreBox.Controls.Add(this.ScoreLabel);
             this.ScoreBox.Font = new System.Drawing.Font("新細明體", 20F);
-            this.ScoreBox.Location = new System.Drawing.Point(13, 13);
+            this.ScoreBox.Location = new System.Drawing.Point(12, 37);
             this.ScoreBox.Name = "ScoreBox";
             this.ScoreBox.Size = new System.Drawing.Size(749, 123);
             this.ScoreBox.TabIndex = 1;
@@ -48,7 +55,7 @@
             // ScoreLabel
             // 
             this.ScoreLabel.AutoSize = true;
-            this.ScoreLabel.Location = new System.Drawing.Point(377, 56);
+            this.ScoreLabel.Location = new System.Drawing.Point(364, 51);
             this.ScoreLabel.Name = "ScoreLabel";
             this.ScoreLabel.Size = new System.Drawing.Size(25, 27);
             this.ScoreLabel.TabIndex = 0;
@@ -56,24 +63,71 @@
             // 
             // PokerPanel
             // 
-            this.PokerPanel.Location = new System.Drawing.Point(13, 143);
+            this.PokerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PokerPanel.Location = new System.Drawing.Point(12, 166);
             this.PokerPanel.Name = "PokerPanel";
             this.PokerPanel.Size = new System.Drawing.Size(749, 600);
             this.PokerPanel.TabIndex = 2;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gameToolStripMenuItem,
+            this.結束ToolStripMenuItem,
+            this.所有單字ToolStripMenuItem,
+            this.離開遊戲ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(775, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // gameToolStripMenuItem
+            // 
+            this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
+            this.gameToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.gameToolStripMenuItem.Text = "新遊戲";
+            this.gameToolStripMenuItem.Click += new System.EventHandler(this.新遊戲ToolStripMenuItem_Click);
+            // 
+            // 結束ToolStripMenuItem
+            // 
+            this.結束ToolStripMenuItem.Name = "結束ToolStripMenuItem";
+            this.結束ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.結束ToolStripMenuItem.Text = "新增單字";
+            this.結束ToolStripMenuItem.Click += new System.EventHandler(this.新增單字ToolStripMenuItem_Click);
+            // 
+            // 離開遊戲ToolStripMenuItem
+            // 
+            this.離開遊戲ToolStripMenuItem.Name = "離開遊戲ToolStripMenuItem";
+            this.離開遊戲ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.離開遊戲ToolStripMenuItem.Text = "離開遊戲";
+            this.離開遊戲ToolStripMenuItem.Click += new System.EventHandler(this.離開遊戲ToolStripMenuItem_Click);
+            // 
+            // 所有單字ToolStripMenuItem
+            // 
+            this.所有單字ToolStripMenuItem.Name = "所有單字ToolStripMenuItem";
+            this.所有單字ToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.所有單字ToolStripMenuItem.Text = "單字庫";
+            this.所有單字ToolStripMenuItem.Click += new System.EventHandler(this.所有單字ToolStripMenuItem_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 754);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ClientSize = new System.Drawing.Size(775, 778);
             this.Controls.Add(this.PokerPanel);
             this.Controls.Add(this.ScoreBox);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "Main";
             this.Text = "翻牌遊戲";
             this.Load += new System.EventHandler(this.Main_Load);
             this.ScoreBox.ResumeLayout(false);
             this.ScoreBox.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -81,5 +135,10 @@
         private System.Windows.Forms.GroupBox ScoreBox;
         private System.Windows.Forms.Label ScoreLabel;
         private System.Windows.Forms.Panel PokerPanel;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 結束ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 離開遊戲ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 所有單字ToolStripMenuItem;
     }
 }

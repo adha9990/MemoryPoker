@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MemoryPoker.Controllers;
@@ -15,6 +14,7 @@ namespace MemoryPoker.Views
 {
     public partial class Main : Form
     {
+        private DataController dataController = new DataController();
         private PokerController pokerController = new PokerController();
         private List<Button> poker_cache = new List<Button>();
 
@@ -36,15 +36,23 @@ namespace MemoryPoker.Views
         /// </summary>
         private void InitializeGame()
         {
+            pokerController.InitializeData();
+            ScoreLabel.Text = pokerController.GetScore().ToString();
+            PokerPanel.Controls.Clear();
             Point poker_point = new Point(0, 0);
             foreach (Poker poker in pokerController.GetPokers())
             {
                 Button pokerButton = CreatePokerButton(poker.Value, poker.Parents,poker_point);
                 PokerPanel.Controls.Add(pokerButton);
-                poker_point = UpdateNewPokerPoint(poker_point);
+                poker_point = UpdateNewPoint(poker_point);
             }
         }
-        private Point UpdateNewPokerPoint(Point point)
+        /// <summary>
+        /// 以6筆為一列更新座標
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        private Point UpdateNewPoint(Point point)
         {
             point.X++;
             if(point.X >= 6)
@@ -88,7 +96,7 @@ namespace MemoryPoker.Views
                 btn.ForeColor = DefaultForeColor;
                 poker_cache.Add(btn);
             }
-            await Task.Delay(1000);
+            await Task.Delay(1500);
             if (poker_cache.Count() >= 2)
             {
                 if (pokerController.CheckEquals(poker_cache[0].Text, poker_cache[1].Tag.ToString()))
@@ -110,9 +118,40 @@ namespace MemoryPoker.Views
         /// </summary>
         /// <param name="title"></param>
         /// <param name="description"></param>
-        private void dd(string title,string description)
+        private void dd(string text)
         {
-            MessageBox.Show(title, description);
+            MessageBox.Show(text);
+        }
+
+        private void 新遊戲ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitializeGame();
+        }
+
+        private void 新增單字ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InputDataForm f = new InputDataForm();
+            f.ShowDialog();
+        }
+
+        private void 離開遊戲ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Environment.Exit(Environment.ExitCode);
+        }
+
+        private void 所有單字ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string msg = String.Format("{0} \t{1}\t{2}\n\n", "索引","英文","中文");
+            int index = 0;
+            Point point = new Point(0, 0);
+            foreach (Data data in dataController.GetDatas())
+            {
+                index++;
+                msg += String.Format("{0}.\t{1}\t{2}\n", index, data.English, data.Chinese);
+                point = UpdateNewPoint(point);
+            }
+            MessageBox.Show(msg, "單字庫");
         }
     }
 }

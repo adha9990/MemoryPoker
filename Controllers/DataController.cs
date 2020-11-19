@@ -32,6 +32,10 @@ namespace MemoryPoker.Controllers
                 Datas = js.Deserialize<List<Data>>(json);
             }
         }
+        public void addData(string English,string Chinese)
+        {
+            
+        }
         /// <summary>
         /// 取得所有單字
         /// </summary>

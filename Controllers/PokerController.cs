@@ -20,7 +20,7 @@ namespace MemoryPoker.Controllers
         /// <summary>
         /// 初始化資料
         /// </summary>
-        private void InitializeData()
+        public void InitializeData()
         {
             CreateNewPokers();
             RandomPokers();
