@@ -106,6 +106,7 @@
             this.Controls.Add(this.EnglishTextBox);
             this.Name = "InputDataForm";
             this.Text = "輸入單字";
+            this.Load += new System.EventHandler(this.InputDataForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -14,7 +14,6 @@ namespace MemoryPoker.Views
 {
     public partial class Main : Form
     {
-        private DataController dataController = new DataController();
         private PokerController pokerController = new PokerController();
         private List<Button> poker_cache = new List<Button>();
 
@@ -142,6 +141,7 @@ namespace MemoryPoker.Views
 
         private void 所有單字ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DataController dataController = new DataController();
             string msg = String.Format("{0} \t{1}\t{2}\n\n", "索引","英文","中文");
             int index = 0;
             Point point = new Point(0, 0);

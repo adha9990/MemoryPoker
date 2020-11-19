@@ -12,7 +12,7 @@ namespace MemoryPoker.Controllers
     class DataController
     {
         private const string FILE = "data.json";
-        private List<Data> Datas = new List<Data>();
+        private List<Data> datas = new List<Data>();
         /// <summary>
         /// 初始化
         /// </summary>
@@ -29,12 +29,19 @@ namespace MemoryPoker.Controllers
             {
                 string json = r.ReadToEnd();
                 JavaScriptSerializer js = new JavaScriptSerializer();
-                Datas = js.Deserialize<List<Data>>(json);
+                datas = js.Deserialize<List<Data>>(json);
             }
         }
         public void addData(string English,string Chinese)
         {
-            
+            datas.Add(new Data(Chinese, English));
+
+            using (StreamWriter file = File.CreateText(FILE))
+            {
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                string json = js.Serialize(datas);
+                file.Write(json);
+            }
         }
         /// <summary>
         /// 取得所有單字
@@ -42,7 +49,7 @@ namespace MemoryPoker.Controllers
         /// <returns></returns>
         public List<Data> GetDatas()
         {
-            return Datas;
+            return datas;
         }
     }
 }

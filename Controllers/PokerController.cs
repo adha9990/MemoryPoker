@@ -22,6 +22,7 @@ namespace MemoryPoker.Controllers
         /// </summary>
         public void InitializeData()
         {
+            score = 0;
             CreateNewPokers();
             RandomPokers();
         }
@@ -30,8 +31,9 @@ namespace MemoryPoker.Controllers
         /// </summary>
         private void CreateNewPokers()
         {
-            pokers = new List<Poker>();
             DataController dataController = new DataController();
+            pokers = new List<Poker>();
+            
             foreach (Data data in dataController.GetDatas())
             {
                 pokers.Add(new Poker(data.Chinese, data.English));

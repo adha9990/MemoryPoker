@@ -26,5 +26,10 @@ namespace MemoryPoker.Views
 
             Close();
         }
+
+        private void InputDataForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
