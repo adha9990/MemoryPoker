@@ -47,11 +47,11 @@ namespace MemoryPoker.Controllers
         private void RandomPokers()
         {
             Random random = new Random();
-            pokers = pokers.OrderBy(x => random.Next(0, pokers.Count())).ToList<Poker>();
-            pokers = pokers.OrderBy(x => random.Next(0, pokers.Count())).ToList<Poker>();
-            pokers = pokers.OrderBy(x => random.Next(0, pokers.Count())).ToList<Poker>();
-            pokers = pokers.OrderBy(x => random.Next(0, pokers.Count())).ToList<Poker>();
-            pokers = pokers.OrderBy(x => random.Next(0, pokers.Count())).ToList<Poker>();
+            //pokers = pokers.OrderBy(x => random.Next(0, pokers.Count())).ToList<Poker>();
+            //pokers = pokers.OrderBy(x => random.Next(0, pokers.Count())).ToList<Poker>();
+            //pokers = pokers.OrderBy(x => random.Next(0, pokers.Count())).ToList<Poker>();
+            //pokers = pokers.OrderBy(x => random.Next(0, pokers.Count())).ToList<Poker>();
+            //pokers = pokers.OrderBy(x => random.Next(0, pokers.Count())).ToList<Poker>();
         }
         /// <summary>
         /// 取得所有撲克牌

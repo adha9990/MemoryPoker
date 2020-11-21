@@ -102,8 +102,8 @@ namespace MemoryPoker.Views
                 {
                     pokerController.AddScore();
                     ScoreLabel.Text = pokerController.GetScore().ToString();
-                    poker_cache[0].Hide();
-                    poker_cache[1].Hide();
+                    poker_cache[0].BackColor = Color.LightSeaGreen;
+                    poker_cache[1].BackColor = Color.LightSeaGreen;
                 }
                 foreach (Button button in poker_cache)
                 {
