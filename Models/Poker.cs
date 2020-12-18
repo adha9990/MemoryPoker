@@ -8,20 +8,20 @@ namespace MemoryPoker.Models
 {
     class Poker
     {
-        public Poker(string value,string parents)
+        public Poker(int id,string value)
         {
+            Id = id;
             Value = value;
-            Parents = parents;
+        }
+        public int Id
+        {
+            set;
+            get;
         }
         public string Value
         {
             set;
             get;
         }
-        public string Parents
-        {
-            set;
-            get;
-        }        
     }
 }

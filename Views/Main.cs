@@ -41,7 +41,7 @@ namespace MemoryPoker.Views
             Point poker_point = new Point(0, 0);
             foreach (Poker poker in pokerController.GetPokers())
             {
-                Button pokerButton = CreatePokerButton(poker.Value, poker.Parents,poker_point);
+                Button pokerButton = CreatePokerButton(poker.Id,poker.Value,poker_point);
                 PokerPanel.Controls.Add(pokerButton);
                 poker_point = UpdateNewPoint(poker_point);
             }
@@ -67,13 +67,13 @@ namespace MemoryPoker.Views
         /// <param name="text"></param>
         /// <param name="tag"></param>
         /// <returns></returns>
-        private Button CreatePokerButton(string text, string tag, Point point)
+        private Button CreatePokerButton(int id, string text, Point point)
         {
             Button btn = new Button();
             btn.BackColor = DefaultBackColor;
             btn.ForeColor = DefaultBackColor;
             btn.Text = text;
-            btn.Tag = tag;
+            btn.Tag = id;
             btn.Font = new Font("Microsoft JhengHei",20);
             btn.Width = 125;
             btn.Height = 150;
@@ -98,28 +98,22 @@ namespace MemoryPoker.Views
             await Task.Delay(1500);
             if (poker_cache.Count() >= 2)
             {
-                if (pokerController.CheckEquals(poker_cache[0].Text, poker_cache[1].Tag.ToString()))
+                if (pokerController.CheckEquals((int)poker_cache[0].Tag, (int)poker_cache[1].Tag))
                 {
                     pokerController.AddScore();
                     ScoreLabel.Text = pokerController.GetScore().ToString();
-                    poker_cache[0].BackColor = Color.LightSeaGreen;
-                    poker_cache[1].BackColor = Color.LightSeaGreen;
-                }
-                foreach (Button button in poker_cache)
+                    poker_cache[0].BackColor = Color.LightBlue;
+                    poker_cache[1].BackColor = Color.LightBlue;
+                } 
+                else
                 {
-                    button.ForeColor = DefaultBackColor;
-                }
+                    foreach (Button button in poker_cache)
+                    {
+                        button.ForeColor = DefaultBackColor;
+                    }
+                }                
                 poker_cache.Clear();
             }
-        }
-        /// <summary>
-        /// 除錯
-        /// </summary>
-        /// <param name="title"></param>
-        /// <param name="description"></param>
-        private void dd(string text)
-        {
-            MessageBox.Show(text);
         }
 
         private void 新遊戲ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -127,31 +121,15 @@ namespace MemoryPoker.Views
             InitializeGame();
         }
 
-        private void 新增單字ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            InputDataForm f = new InputDataForm();
-            f.ShowDialog();
-        }
-
         private void 離開遊戲ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
             Environment.Exit(Environment.ExitCode);
         }
-
-        private void 所有單字ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 後台管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DataController dataController = new DataController();
-            string msg = String.Format("{0} \t{1}\t{2}\n\n", "索引","英文","中文");
-            int index = 0;
-            Point point = new Point(0, 0);
-            foreach (Data data in dataController.GetDatas())
-            {
-                index++;
-                msg += String.Format("{0}.\t{1}\t{2}\n", index, data.English, data.Chinese);
-                point = UpdateNewPoint(point);
-            }
-            MessageBox.Show(msg, "單字庫");
+            new DataManage().ShowDialog();
+            InitializeGame();
         }
     }
 }

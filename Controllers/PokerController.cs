@@ -36,8 +36,8 @@ namespace MemoryPoker.Controllers
             
             foreach (Data data in dataController.GetDatas())
             {
-                pokers.Add(new Poker(data.Chinese, data.English));
-                pokers.Add(new Poker(data.English, data.Chinese));
+                pokers.Add(new Poker(data.Id, data.English));
+                pokers.Add(new Poker(data.Id, data.Chinese));
             }
         }
         /// <summary>
@@ -67,9 +67,9 @@ namespace MemoryPoker.Controllers
         /// <param name="text"></param>
         /// <param name="tag"></param>
         /// <returns></returns>
-        public Boolean CheckEquals(string text, string tag)
+        public Boolean CheckEquals(int a_id, int b_id)
         {
-            return String.Equals(text, tag);
+            return String.Equals(a_id, b_id);
         }
         /// <summary>
         /// 獲得分數

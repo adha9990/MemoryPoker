@@ -18,12 +18,12 @@ namespace MemoryPoker.Controllers
         /// </summary>
         public DataController()
         {
-            InitializeData();
+            readDatabase();
         }
         /// <summary>
-        /// 初始化讀取單字
+        /// 讀取資料庫
         /// </summary>
-        private void InitializeData()
+        private void readDatabase()
         {
             using (StreamReader r = new StreamReader(FILE))
             {
@@ -32,10 +32,11 @@ namespace MemoryPoker.Controllers
                 datas = js.Deserialize<List<Data>>(json);
             }
         }
-        public void addData(string English,string Chinese)
+        /// <summary>
+        /// 寫入資料庫
+        /// </summary>
+        private void writeDatabase()
         {
-            datas.Add(new Data(Chinese, English));
-
             using (StreamWriter file = File.CreateText(FILE))
             {
                 JavaScriptSerializer js = new JavaScriptSerializer();
@@ -43,6 +44,53 @@ namespace MemoryPoker.Controllers
                 file.Write(json);
             }
         }
+        /// <summary>
+        /// 新增單字
+        /// </summary>
+        /// <param name="English"></param>
+        /// <param name="Chinese"></param>
+        public void addData(string English,string Chinese)
+        {
+            datas.Add(new Data(datas[datas.Count-1].Id+1, English, Chinese));
+            writeDatabase();
+        }
+        /// <summary>
+        /// 修改單字
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="English"></param>
+        /// <param name="Chinese"></param>
+        public void editData(int id,string English,string Chinese)
+        {
+            foreach (Data data in datas)
+            {
+                if (data.Id == id)
+                {
+                    data.English = English;
+                    data.Chinese = Chinese;
+                    break;
+                }
+            }
+            writeDatabase();
+        }
+        /// <summary>
+        /// 刪除單字
+        /// </summary>
+        /// <param name="id"></param>
+        public void deleteData(int id)
+        {
+            int index = 0;
+            foreach (Data data in datas)
+            {
+                if(data.Id == id)
+                {
+                    datas.RemoveAt(index);
+                    break;
+                }
+                index++;
+            }
+            writeDatabase();
+        }        
         /// <summary>
         /// 取得所有單字
         /// </summary>

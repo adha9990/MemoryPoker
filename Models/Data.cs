@@ -11,17 +11,23 @@ namespace MemoryPoker.Models
         public Data() { 
 
         }
-        public Data(string chinese,string english)
+        public Data(int id, string english, string chinese)
         {
-            Chinese = chinese;
+            Id = id;
             English = english;
+            Chinese = chinese;
         }
-        public string Chinese
+        public int Id
         {
             get;
             set;
         }
         public string English
+        {
+            get;
+            set;
+        }
+        public string Chinese
         {
             get;
             set;
