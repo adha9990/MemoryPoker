@@ -11,7 +11,7 @@ namespace MemoryPoker.Controllers
 {
     class DataController
     {
-        private const string FILE = "data.json";
+        private const string FILE = "Resource/data.json";
         private List<Data> datas = new List<Data>();
         /// <summary>
         /// 初始化

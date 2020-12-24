@@ -33,8 +33,8 @@
             this.PokerPanel = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.離開遊戲ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.後台管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.離開遊戲ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ScoreBox.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -87,19 +87,19 @@
             this.gameToolStripMenuItem.Text = "新遊戲";
             this.gameToolStripMenuItem.Click += new System.EventHandler(this.新遊戲ToolStripMenuItem_Click);
             // 
-            // 離開遊戲ToolStripMenuItem
-            // 
-            this.離開遊戲ToolStripMenuItem.Name = "離開遊戲ToolStripMenuItem";
-            this.離開遊戲ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.離開遊戲ToolStripMenuItem.Text = "離開遊戲";
-            this.離開遊戲ToolStripMenuItem.Click += new System.EventHandler(this.離開遊戲ToolStripMenuItem_Click);
-            // 
             // 後台管理ToolStripMenuItem
             // 
             this.後台管理ToolStripMenuItem.Name = "後台管理ToolStripMenuItem";
             this.後台管理ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.後台管理ToolStripMenuItem.Text = "單字管理";
             this.後台管理ToolStripMenuItem.Click += new System.EventHandler(this.後台管理ToolStripMenuItem_Click);
+            // 
+            // 離開遊戲ToolStripMenuItem
+            // 
+            this.離開遊戲ToolStripMenuItem.Name = "離開遊戲ToolStripMenuItem";
+            this.離開遊戲ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.離開遊戲ToolStripMenuItem.Text = "離開遊戲";
+            this.離開遊戲ToolStripMenuItem.Click += new System.EventHandler(this.離開遊戲ToolStripMenuItem_Click);
             // 
             // Main
             // 
