@@ -37,12 +37,15 @@
             this.後台管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.離開遊戲ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.現有組合清單ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ScoreBox.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ScoreBox
             // 
+            this.ScoreBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ScoreBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ScoreBox.Controls.Add(this.ScoreLabel);
             this.ScoreBox.Font = new System.Drawing.Font("新細明體", 20F);
@@ -64,6 +67,10 @@
             // 
             // PokerPanel
             // 
+            this.PokerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PokerPanel.AutoScroll = true;
             this.PokerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.PokerPanel.Location = new System.Drawing.Point(12, 166);
             this.PokerPanel.Name = "PokerPanel";
@@ -75,7 +82,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gameToolStripMenuItem,
             this.後台管理ToolStripMenuItem,
-            this.離開遊戲ToolStripMenuItem});
+            this.離開遊戲ToolStripMenuItem,
+            this.現有組合清單ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(775, 24);
@@ -108,6 +116,13 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.PreparePlayGame);
             // 
+            // 現有組合清單ToolStripMenuItem
+            // 
+            this.現有組合清單ToolStripMenuItem.Name = "現有組合清單ToolStripMenuItem";
+            this.現有組合清單ToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.現有組合清單ToolStripMenuItem.Text = "現有組合清單";
+            this.現有組合清單ToolStripMenuItem.Click += new System.EventHandler(this.現有組合清單ToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -138,5 +153,6 @@
         private System.Windows.Forms.ToolStripMenuItem 離開遊戲ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 後台管理ToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem 現有組合清單ToolStripMenuItem;
     }
 }

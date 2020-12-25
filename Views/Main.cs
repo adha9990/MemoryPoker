@@ -17,7 +17,8 @@ namespace MemoryPoker.Views
         private PokerController pokerController = new PokerController();
         private List<Button> poker_cache = new List<Button>();
         private MusicController music = new MusicController();
-        int prepare_time;
+        private int max_poker_width = 15;
+        private int prepare_time;
 
         public Main()
         {
@@ -83,7 +84,7 @@ namespace MemoryPoker.Views
         private Point UpdateNewPoint(Point point)
         {
             point.X++;
-            if(point.X >= 6)
+            if(point.X >= max_poker_width)
             {
                 point.X = 0;
                 point.Y++;
@@ -146,12 +147,10 @@ namespace MemoryPoker.Views
                 poker_cache.Clear();
             }
         }
-
         private void 新遊戲ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InitializeGame();
         }
-
         private void 離開遊戲ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -163,6 +162,10 @@ namespace MemoryPoker.Views
             InitializeGame();
         }
 
-        
+        private void 現有組合清單ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(String.Join(",", pokerController.GetPokers().Select(x => x.Value)), "現有組合清單");
+            //pokerController.GetPokers;
+        }
     }
 }
