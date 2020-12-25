@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ScoreBox = new System.Windows.Forms.GroupBox();
             this.ScoreLabel = new System.Windows.Forms.Label();
             this.PokerPanel = new System.Windows.Forms.Panel();
@@ -35,6 +36,7 @@
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.後台管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.離開遊戲ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ScoreBox.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +103,11 @@
             this.離開遊戲ToolStripMenuItem.Text = "離開遊戲";
             this.離開遊戲ToolStripMenuItem.Click += new System.EventHandler(this.離開遊戲ToolStripMenuItem_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.PreparePlayGame);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -130,5 +137,6 @@
         private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 離開遊戲ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 後台管理ToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }

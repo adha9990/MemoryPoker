@@ -17,6 +17,7 @@ namespace MemoryPoker.Views
         private PokerController pokerController = new PokerController();
         private List<Button> poker_cache = new List<Button>();
         private MusicController music = new MusicController();
+        int prepare_time;
 
         public Main()
         {
@@ -30,11 +31,15 @@ namespace MemoryPoker.Views
         private void Main_Load(object sender, EventArgs e)
         {
             // 去掉外框
-            //FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.None;
             // 視窗最大化
-            //WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Maximized;
 
             InitializeGame();
+
+            prepare_time = 10;
+            ScoreLabel.Text = prepare_time.ToString();
+            timer1.Start();
         }
         /// <summary>
         /// 初始化遊戲
@@ -51,6 +56,24 @@ namespace MemoryPoker.Views
                 PokerPanel.Controls.Add(pokerButton);
                 poker_point = UpdateNewPoint(poker_point);
             }
+        }
+        /// <summary>
+        /// 遊戲開始前 一個記憶時間,顯示答案 ,計時結束後開始遊戲
+        /// </summary>
+        private void PreparePlayGame(object sender, EventArgs e)
+        {
+            prepare_time--;
+            ScoreLabel.Text = prepare_time.ToString();
+            if (prepare_time < 0)
+            {
+                foreach(Button btn in PokerPanel.Controls)
+                {
+                    btn.ForeColor = DefaultBackColor;
+                }
+                ScoreLabel.Text = "0";
+                timer1.Stop();
+            }
+            
         }
         /// <summary>
         /// 以6筆為一列更新座標
@@ -77,7 +100,7 @@ namespace MemoryPoker.Views
         {
             Button btn = new Button();
             btn.BackColor = DefaultBackColor;
-            btn.ForeColor = DefaultBackColor;
+            //btn.ForeColor = DefaultBackColor;
             btn.Text = text;
             btn.Tag = id;
             btn.Font = new Font("Microsoft JhengHei",20);
@@ -139,5 +162,7 @@ namespace MemoryPoker.Views
             new DataManage().ShowDialog();
             InitializeGame();
         }
+
+        
     }
 }
