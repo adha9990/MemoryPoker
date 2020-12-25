@@ -164,8 +164,14 @@ namespace MemoryPoker.Views
 
         private void 現有組合清單ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(String.Join(",", pokerController.GetPokers().Select(x => x.Value)), "現有組合清單");
-            //pokerController.GetPokers;
+            string msg = "";
+            int index = 0;
+            foreach (Data poker in pokerController.GetPokerList())
+            {
+                index++;
+                msg += String.Format("{0}.\t{1}\t{2}\n",index,poker.Chinese,poker.English);
+            }
+            MessageBox.Show(msg, "現有組合清單");
         }
     }
 }

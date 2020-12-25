@@ -10,6 +10,7 @@ namespace MemoryPoker.Controllers
     class PokerController
     {
         private List<Poker> pokers = new List<Poker>();
+        private List<Data> poker_list = new List<Data>();
         private const int score_point = 100;
         private int score = 0;
 
@@ -38,6 +39,7 @@ namespace MemoryPoker.Controllers
             {
                 pokers.Add(new Poker(data.Id, data.English));
                 pokers.Add(new Poker(data.Id, data.Chinese));
+                poker_list.Add(new Data(data.English, data.Chinese));
             }
         }
         /// <summary>
@@ -85,6 +87,14 @@ namespace MemoryPoker.Controllers
         public int GetScore()
         {
             return score;
+        }
+        /// <summary>
+        /// 回傳撲克牌清單
+        /// </summary>
+        /// <returns></returns>
+        public List<Data> GetPokerList()
+        {
+            return poker_list;
         }
     }
 }
