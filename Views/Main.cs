@@ -178,7 +178,7 @@ namespace MemoryPoker.Views
 
         private void 現有組合清單ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string msg = "";
+            string msg = String.Format("{0}.\t{1}\t{2}\n", "編號", "中文", "英文");
             int index = 0;
             foreach (Data poker in pokerController.GetPokerList())
             {

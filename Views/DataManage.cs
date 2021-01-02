@@ -28,6 +28,7 @@ namespace MemoryPoker.Views
 
         private void InitialLoadData()
         {
+            dataController.updateDatas();
             DataTableLayoutPanel.Controls.Clear();
             DataTableLayoutPanel.Controls.Add(new Label() { Text = "Id" }, 0, 0);
             DataTableLayoutPanel.Controls.Add(new Label() { Text = "英文" }, 1, 0);

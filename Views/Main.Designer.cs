@@ -74,8 +74,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gameToolStripMenuItem,
             this.後台管理ToolStripMenuItem,
-            this.離開遊戲ToolStripMenuItem,
-            this.現有組合清單ToolStripMenuItem});
+            this.現有組合清單ToolStripMenuItem,
+            this.離開遊戲ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(775, 24);

@@ -57,14 +57,19 @@ namespace MemoryPoker.Controllers
             }
         }
         /// <summary>
-        /// 新增單字
+        /// 更新資料集
         /// </summary>
-        /// <param name="English"></param>
-        /// <param name="Chinese"></param>
-        public void addData(string English,string Chinese)
+        public void addData(string English, string Chinese)
         {
             datas.Add(new Data(datas[datas.Count == 0 ? 0 : datas.Count - 1].Id + 1, English, Chinese));
             writeDatabase();
+        }
+        /// <summary>
+        /// 更新單字庫
+        /// </summary>
+        public void updateDatas()
+        {
+            readDatabase();
         }
         /// <summary>
         /// 修改單字
