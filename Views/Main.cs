@@ -31,6 +31,7 @@ namespace MemoryPoker.Views
         /// <param name="e"></param>
         private void Main_Load(object sender, EventArgs e)
         {
+            music.Answer();
             // 去掉外框
             FormBorderStyle = FormBorderStyle.None;
             // 視窗最大化
@@ -46,6 +47,7 @@ namespace MemoryPoker.Views
         {
             pokerController.InitializeData();
             ScoreLabel.Text = pokerController.GetScore().ToString();
+            PokerFlowPanel.ResumeLayout();
             PokerFlowPanel.Controls.Clear();
             Point poker_point = new Point(0, 0);
             foreach (Poker poker in pokerController.GetPokers())
@@ -143,17 +145,15 @@ namespace MemoryPoker.Views
             {
                 if (pokerController.CheckEquals((int)poker_cache[0].Tag, (int)poker_cache[1].Tag))
                 {
-                    music.answer();
+                    music.Answer();
                     pokerController.AddScore();
                     ScoreLabel.Text = pokerController.GetScore().ToString();
                     poker_cache[0].Visible = false;
                     poker_cache[1].Visible = false;
-                    //poker_cache[0].BackColor = Color.LightBlue;
-                    //poker_cache[1].BackColor = Color.LightBlue;
                 } 
                 else
                 {
-                    music.wrong();
+                    music.Wrong();
                     foreach (Button button in poker_cache)
                     {
                         button.ForeColor = DefaultBackColor;

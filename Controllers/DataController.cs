@@ -11,7 +11,7 @@ namespace MemoryPoker.Controllers
 {
     class DataController
     {
-        private const string FILE = "Resource/data.json";
+        private const string FILE = "data.json";
         private List<Data> datas = new List<Data>();
         /// <summary>
         /// 初始化
@@ -25,6 +25,7 @@ namespace MemoryPoker.Controllers
         /// </summary>
         private void readDatabase()
         {
+            CheckJsonFile();
             using (StreamReader r = new StreamReader(FILE))
             {
                 string json = r.ReadToEnd();
@@ -37,11 +38,22 @@ namespace MemoryPoker.Controllers
         /// </summary>
         private void writeDatabase()
         {
+            CheckJsonFile();
             using (StreamWriter file = File.CreateText(FILE))
             {
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 string json = js.Serialize(datas);
                 file.Write(json);
+            }
+        }
+        private void CheckJsonFile()
+        {
+            if (!File.Exists(FILE))
+            {
+                FileStream file = File.Create(FILE);
+                byte[] info = new UTF8Encoding(true).GetBytes("[]");
+                file.Write(info, 0, info.Length);
+                file.Close();
             }
         }
         /// <summary>
@@ -51,7 +63,7 @@ namespace MemoryPoker.Controllers
         /// <param name="Chinese"></param>
         public void addData(string English,string Chinese)
         {
-            datas.Add(new Data(datas[datas.Count-1].Id+1, English, Chinese));
+            datas.Add(new Data(datas[datas.Count == 0 ? 0 : datas.Count - 1].Id + 1, English, Chinese));
             writeDatabase();
         }
         /// <summary>
