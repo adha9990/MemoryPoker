@@ -18,7 +18,7 @@ namespace MemoryPoker.Views
         private List<Button> poker_cache = new List<Button>();
         private MusicController music = new MusicController();
         private int max_poker_width = 15;
-        private int prepare_time;
+        private int prepare_time = 10;
 
         public Main()
         {
@@ -37,10 +37,7 @@ namespace MemoryPoker.Views
             WindowState = FormWindowState.Maximized;
 
             InitializeGame();
-
-            prepare_time = 10;
-            ScoreLabel.Text = prepare_time.ToString();
-            timer1.Start();
+            
         }
         /// <summary>
         /// 初始化遊戲
@@ -57,24 +54,38 @@ namespace MemoryPoker.Views
                 PokerPanel.Controls.Add(pokerButton);
                 poker_point = UpdateNewPoint(poker_point);
             }
+            prepare_time = 10;
+            ScoreBox.Text = "記憶時間";
+            ScoreLabel.Text = "10";
+            timer1.Start();
+        }
+        private void StartGame()
+        {
+            ScoreBox.Text = "計分表";
+            ScoreLabel.Text = "0";
+            ScoreLabel.ForeColor = DefaultForeColor;
+            foreach (Button btn in PokerPanel.Controls)
+            {
+                btn.ForeColor = DefaultBackColor;
+            }
+            timer1.Stop();
         }
         /// <summary>
         /// 遊戲開始前 一個記憶時間,顯示答案 ,計時結束後開始遊戲
         /// </summary>
-        private void PreparePlayGame(object sender, EventArgs e)
+        private void MemoryTime(object sender, EventArgs e)
         {
             prepare_time--;
-            ScoreLabel.Text = prepare_time.ToString();
-            if (prepare_time < 0)
+            if (prepare_time <= 5)
             {
-                foreach(Button btn in PokerPanel.Controls)
+                ScoreLabel.ForeColor = Color.Red;
+                if (prepare_time < 0)
                 {
-                    btn.ForeColor = DefaultBackColor;
+                    StartGame();
+                    return;
                 }
-                ScoreLabel.Text = "0";
-                timer1.Stop();
             }
-            
+            ScoreLabel.Text = prepare_time.ToString();
         }
         /// <summary>
         /// 以6筆為一列更新座標
