@@ -46,14 +46,16 @@ namespace MemoryPoker.Views
         {
             pokerController.InitializeData();
             ScoreLabel.Text = pokerController.GetScore().ToString();
-            PokerPanel.Controls.Clear();
+            PokerFlowPanel.Controls.Clear();
             Point poker_point = new Point(0, 0);
             foreach (Poker poker in pokerController.GetPokers())
             {
                 Button pokerButton = CreatePokerButton(poker.Id,poker.Value,poker_point);
-                PokerPanel.Controls.Add(pokerButton);
-                poker_point = UpdateNewPoint(poker_point);
+                PokerFlowPanel.Controls.Add(pokerButton);
+                // 改用FlowLayoutPanel物件設計
+                //poker_point = UpdateNewPoint(poker_point);
             }
+            PokerFlowPanel.SuspendLayout();
             prepare_time = 10;
             ScoreBox.Text = "記憶時間";
             ScoreLabel.Text = "10";
@@ -64,7 +66,7 @@ namespace MemoryPoker.Views
             ScoreBox.Text = "計分表";
             ScoreLabel.Text = "0";
             ScoreLabel.ForeColor = DefaultForeColor;
-            foreach (Button btn in PokerPanel.Controls)
+            foreach (Button btn in PokerFlowPanel.Controls)
             {
                 btn.ForeColor = DefaultBackColor;
             }
@@ -144,8 +146,10 @@ namespace MemoryPoker.Views
                     music.answer();
                     pokerController.AddScore();
                     ScoreLabel.Text = pokerController.GetScore().ToString();
-                    poker_cache[0].BackColor = Color.LightBlue;
-                    poker_cache[1].BackColor = Color.LightBlue;
+                    poker_cache[0].Visible = false;
+                    poker_cache[1].Visible = false;
+                    //poker_cache[0].BackColor = Color.LightBlue;
+                    //poker_cache[1].BackColor = Color.LightBlue;
                 } 
                 else
                 {
