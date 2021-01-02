@@ -31,7 +31,6 @@ namespace MemoryPoker.Views
         /// <param name="e"></param>
         private void Main_Load(object sender, EventArgs e)
         {
-            music.Answer();
             // 去掉外框
             FormBorderStyle = FormBorderStyle.None;
             // 視窗最大化
