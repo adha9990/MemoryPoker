@@ -11,8 +11,8 @@ namespace MemoryPoker.Controllers
     {
         private List<Poker> pokers = new List<Poker>();
         private List<Data> poker_list = new List<Data>();
-        private const double score_point = Math.PI;
-        private double score = 0;
+        private const int score_point = 110-10;
+        private int score = 0;
 
         public PokerController()
         {
@@ -85,7 +85,7 @@ namespace MemoryPoker.Controllers
         /// 回傳總分
         /// </summary>
         /// <returns></returns>
-        public double GetScore()
+        public int GetScore()
         {
             return score;
         }
