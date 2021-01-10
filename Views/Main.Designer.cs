@@ -34,8 +34,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.後台管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.離開遊戲ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.現有組合清單ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.設定記憶時間ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.離開遊戲ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.PokerFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.ScoreBox.SuspendLayout();
@@ -46,7 +47,7 @@
             // 
             this.ScoreBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ScoreBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ScoreBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ScoreBox.Controls.Add(this.ScoreLabel);
             this.ScoreBox.Font = new System.Drawing.Font("新細明體", 20F);
             this.ScoreBox.Location = new System.Drawing.Point(12, 37);
@@ -75,6 +76,7 @@
             this.gameToolStripMenuItem,
             this.後台管理ToolStripMenuItem,
             this.現有組合清單ToolStripMenuItem,
+            this.設定記憶時間ToolStripMenuItem,
             this.離開遊戲ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -96,19 +98,26 @@
             this.後台管理ToolStripMenuItem.Text = "單字管理";
             this.後台管理ToolStripMenuItem.Click += new System.EventHandler(this.後台管理ToolStripMenuItem_Click);
             // 
-            // 離開遊戲ToolStripMenuItem
-            // 
-            this.離開遊戲ToolStripMenuItem.Name = "離開遊戲ToolStripMenuItem";
-            this.離開遊戲ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.離開遊戲ToolStripMenuItem.Text = "離開遊戲";
-            this.離開遊戲ToolStripMenuItem.Click += new System.EventHandler(this.離開遊戲ToolStripMenuItem_Click);
-            // 
             // 現有組合清單ToolStripMenuItem
             // 
             this.現有組合清單ToolStripMenuItem.Name = "現有組合清單ToolStripMenuItem";
             this.現有組合清單ToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.現有組合清單ToolStripMenuItem.Text = "現有組合清單";
             this.現有組合清單ToolStripMenuItem.Click += new System.EventHandler(this.現有組合清單ToolStripMenuItem_Click);
+            // 
+            // 設定記憶時間ToolStripMenuItem
+            // 
+            this.設定記憶時間ToolStripMenuItem.Name = "設定記憶時間ToolStripMenuItem";
+            this.設定記憶時間ToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.設定記憶時間ToolStripMenuItem.Text = "設定記憶時間";
+            this.設定記憶時間ToolStripMenuItem.Click += new System.EventHandler(this.設定記憶時間ToolStripMenuItem_Click);
+            // 
+            // 離開遊戲ToolStripMenuItem
+            // 
+            this.離開遊戲ToolStripMenuItem.Name = "離開遊戲ToolStripMenuItem";
+            this.離開遊戲ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.離開遊戲ToolStripMenuItem.Text = "離開遊戲";
+            this.離開遊戲ToolStripMenuItem.Click += new System.EventHandler(this.離開遊戲ToolStripMenuItem_Click);
             // 
             // timer1
             // 
@@ -121,9 +130,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PokerFlowPanel.AutoSize = true;
-            this.PokerFlowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PokerFlowPanel.BackColor = System.Drawing.Color.Gainsboro;
             this.PokerFlowPanel.Location = new System.Drawing.Point(12, 166);
             this.PokerFlowPanel.Name = "PokerFlowPanel";
+            this.PokerFlowPanel.Padding = new System.Windows.Forms.Padding(30, 20, 0, 0);
             this.PokerFlowPanel.Size = new System.Drawing.Size(751, 425);
             this.PokerFlowPanel.TabIndex = 0;
             // 
@@ -131,7 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(775, 603);
             this.Controls.Add(this.PokerFlowPanel);
             this.Controls.Add(this.ScoreBox);
@@ -157,5 +167,6 @@
         private System.Windows.Forms.ToolStripMenuItem 現有組合清單ToolStripMenuItem;
         private System.Windows.Forms.Label ScoreLabel;
         private System.Windows.Forms.FlowLayoutPanel PokerFlowPanel;
+        private System.Windows.Forms.ToolStripMenuItem 設定記憶時間ToolStripMenuItem;
     }
 }

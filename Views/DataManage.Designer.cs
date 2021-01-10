@@ -90,7 +90,7 @@
             this.Controls.Add(this.DataTableLayoutPanel);
             this.Controls.Add(this.label1);
             this.Name = "DataManage";
-            this.Text = "DataManage";
+            this.Text = "單字管理";
             this.Load += new System.EventHandler(this.DataManage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

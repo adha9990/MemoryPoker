@@ -18,11 +18,13 @@ namespace MemoryPoker.Views
         private List<Button> poker_cache = new List<Button>();
         private MusicController music = new MusicController();
         private int max_poker_width = 15;
+        public int def_prepare_time = 10;
         private int prepare_time = 10;
 
         public Main()
         {
             InitializeComponent();
+            
         }
         /// <summary>
         /// 表單讀取
@@ -37,7 +39,6 @@ namespace MemoryPoker.Views
             WindowState = FormWindowState.Maximized;
 
             InitializeGame();
-            
         }
         /// <summary>
         /// 初始化遊戲
@@ -57,9 +58,9 @@ namespace MemoryPoker.Views
                 //poker_point = UpdateNewPoint(poker_point);
             }
             PokerFlowPanel.SuspendLayout();
-            prepare_time = 10;
+            prepare_time = def_prepare_time;
             ScoreBox.Text = "記憶時間";
-            ScoreLabel.Text = "10";
+            ScoreLabel.Text = def_prepare_time.ToString();
             timer1.Start();
         }
         private void StartGame()
@@ -186,6 +187,18 @@ namespace MemoryPoker.Views
                 msg += String.Format("{0}.\t{1}\t{2}\n",index,poker.Chinese,poker.English);
             }
             MessageBox.Show(msg, "現有組合清單");
+        }
+
+        private void 設定記憶時間ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SetPrepareMemoryTime _form = new SetPrepareMemoryTime())
+            {
+                if (_form.ShowDialog() == DialogResult.OK)
+                {
+                    def_prepare_time = _form.time;
+                    InitializeGame();
+                }
+            }
         }
     }
 }
