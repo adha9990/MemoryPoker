@@ -34,7 +34,8 @@ namespace MemoryPoker.Controllers
         {
             DataController dataController = new DataController();
             pokers = new List<Poker>();
-            
+            poker_list = new List<Data>();
+
             foreach (Data data in dataController.GetDatas())
             {
                 pokers.Add(new Poker(data.Id, data.English));
