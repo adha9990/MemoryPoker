@@ -61,7 +61,14 @@ namespace MemoryPoker.Controllers
         /// </summary>
         public void addData(string English, string Chinese)
         {
-            datas.Add(new Data(datas[datas.Count == 0 ? 0 : datas.Count - 1].Id + 1, English, Chinese));
+            if (datas.Count==0)
+            {
+                datas.Add(new Data(English,Chinese));
+            }
+            else
+            {
+                datas.Add(new Data(datas.Count,English, Chinese));
+            }
             writeDatabase();
         }
         /// <summary>

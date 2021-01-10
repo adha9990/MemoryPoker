@@ -11,11 +11,22 @@ namespace MemoryPoker.Models
         public Data() { 
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="english"></param>
+        /// <param name="chinese"></param>
         public Data(string english, string chinese)
         {
             English = english;
             Chinese = chinese;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="english"></param>
+        /// <param name="chinese"></param>
         public Data(int id, string english, string chinese)
         {
             Id = id;
