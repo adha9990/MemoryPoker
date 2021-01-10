@@ -60,6 +60,7 @@ namespace MemoryPoker.Views
             PokerFlowPanel.SuspendLayout();
             prepare_time = def_prepare_time;
             ScoreBox.Text = "記憶時間";
+            ScoreLabel.ForeColor = Color.Black;
             ScoreLabel.Text = def_prepare_time.ToString();
             timer1.Start();
         }
