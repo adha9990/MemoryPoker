@@ -47,9 +47,10 @@
             // 
             this.ScoreBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ScoreBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ScoreBox.BackColor = System.Drawing.Color.SteelBlue;
             this.ScoreBox.Controls.Add(this.ScoreLabel);
             this.ScoreBox.Font = new System.Drawing.Font("新細明體", 20F);
+            this.ScoreBox.ForeColor = System.Drawing.Color.White;
             this.ScoreBox.Location = new System.Drawing.Point(12, 37);
             this.ScoreBox.Name = "ScoreBox";
             this.ScoreBox.Size = new System.Drawing.Size(749, 123);
@@ -59,8 +60,10 @@
             // 
             // ScoreLabel
             // 
+            this.ScoreLabel.BackColor = System.Drawing.Color.SteelBlue;
             this.ScoreLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ScoreLabel.Font = new System.Drawing.Font("新細明體", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ScoreLabel.ForeColor = System.Drawing.Color.White;
             this.ScoreLabel.Location = new System.Drawing.Point(3, 35);
             this.ScoreLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ScoreLabel.Name = "ScoreLabel";
@@ -130,7 +133,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PokerFlowPanel.AutoSize = true;
-            this.PokerFlowPanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.PokerFlowPanel.BackColor = System.Drawing.Color.SkyBlue;
             this.PokerFlowPanel.Location = new System.Drawing.Point(12, 166);
             this.PokerFlowPanel.Name = "PokerFlowPanel";
             this.PokerFlowPanel.Padding = new System.Windows.Forms.Padding(30, 20, 0, 0);
@@ -141,7 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(775, 603);
             this.Controls.Add(this.PokerFlowPanel);
             this.Controls.Add(this.ScoreBox);

@@ -19,7 +19,7 @@ namespace MemoryPoker.Views
         private MusicController music = new MusicController();
         private int max_poker_width = 15;
         public int def_prepare_time = 10;
-        private int prepare_time = 10;
+        private int prepare_time = 3;
 
         public Main()
         {
@@ -60,7 +60,7 @@ namespace MemoryPoker.Views
             PokerFlowPanel.SuspendLayout();
             prepare_time = def_prepare_time;
             ScoreBox.Text = "記憶時間";
-            ScoreLabel.ForeColor = Color.Black;
+            ScoreLabel.ForeColor = Color.White;
             ScoreLabel.Text = def_prepare_time.ToString();
             timer1.Start();
         }
@@ -68,10 +68,10 @@ namespace MemoryPoker.Views
         {
             ScoreBox.Text = "計分表";
             ScoreLabel.Text = "0";
-            ScoreLabel.ForeColor = DefaultForeColor;
+            ScoreLabel.ForeColor = Color.White;
             foreach (Button btn in PokerFlowPanel.Controls)
             {
-                btn.ForeColor = DefaultBackColor;
+                btn.ForeColor = Color.FromArgb(250,250,250);
             }
             timer1.Stop();
         }
@@ -116,7 +116,7 @@ namespace MemoryPoker.Views
         private Button CreatePokerButton(int id, string text, Point point)
         {
             Button btn = new Button();
-            btn.BackColor = DefaultBackColor;
+            btn.BackColor = Color.FromArgb(250,250,250);
             //btn.ForeColor = DefaultBackColor;
             btn.Text = text;
             btn.Tag = "id:"+id;
@@ -138,7 +138,7 @@ namespace MemoryPoker.Views
             Button btn = (Button) sender;
             if(btn.ForeColor != DefaultForeColor)
             {
-                btn.ForeColor = DefaultForeColor;
+                btn.ForeColor = Color.FromArgb(50, 50, 50);
                 poker_cache.Add(btn);
             }
             await Task.Delay(1500);
@@ -157,7 +157,7 @@ namespace MemoryPoker.Views
                     music.Wrong();
                     foreach (Button button in poker_cache)
                     {
-                        button.ForeColor = DefaultBackColor;
+                        button.ForeColor = Color.White;
                     }
                 }
                 poker_cache.Clear();
