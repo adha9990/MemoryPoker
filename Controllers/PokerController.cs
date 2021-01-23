@@ -70,7 +70,7 @@ namespace MemoryPoker.Controllers
         /// <param name="text"></param>
         /// <param name="tag"></param>
         /// <returns></returns>
-        public Boolean CheckEquals(int a_id, int b_id)
+        public Boolean CheckEquals(string a_id, string b_id)
         {
             return String.Equals(a_id, b_id);
         }

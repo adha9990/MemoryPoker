@@ -119,7 +119,7 @@ namespace MemoryPoker.Views
             btn.BackColor = DefaultBackColor;
             //btn.ForeColor = DefaultBackColor;
             btn.Text = text;
-            btn.Tag = id;
+            btn.Tag = "id:"+id;
             btn.Font = new Font("Microsoft JhengHei",20);
             btn.Width = 125;
             btn.Height = 150;
@@ -144,7 +144,7 @@ namespace MemoryPoker.Views
             await Task.Delay(1500);
             if (poker_cache.Count() >= 2)
             {
-                if (pokerController.CheckEquals((int)poker_cache[0].Tag, (int)poker_cache[1].Tag))
+                if (pokerController.CheckEquals((string)poker_cache[0].Tag, (string)poker_cache[1].Tag))
                 {
                     music.Answer();
                     pokerController.AddScore();
